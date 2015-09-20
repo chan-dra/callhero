@@ -92,6 +92,22 @@ router.post('/:id/rules', function(req, res, next) {
     });
 })
 
+router.delete('/:id/rules/:ruleName', function(req, res, next) {
+    var ruleName = req.params.ruleName;
+    MongoClient.connect(url, function(err, db) {
+        findUser(req.params.id, db, function(err, doc) {
+            var rules = doc.rules;
+            if (rules[ruleName]) {
+                delete rules[ruleName];
+            }
+            updateRulesForUser(req.params.id, rules, db, function(err, newDoc) {
+                console.log(newDoc);
+                res.json({success: true})
+            })
+        });
+    });
+})
+
 router.get('/:id/contacts', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
         findUser(req.params.id, db, function(err, doc) {
