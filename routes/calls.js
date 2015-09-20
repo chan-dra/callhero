@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
     var id = '2705621411';
     var resp = new twilio.TwimlResponse();
     console.log(req.body);
-    console.log(req.params);
+    console.log(req.query);
     MongoClient.connect(url, function(err, db) {
         findUser(id, db, function(err, user) {
             var rules = user.rules;
