@@ -89,12 +89,6 @@
   <script src="assets/js/fancybox/jquery.fancybox.js"></script>    
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
-    $.get( "/users/2705621411/rules", function( data ) {
-      for(rule in data) {
-        $("#list").append('<p>'+rule+'<br><b>Type:</b> '+data[rule].type+', <b>Trigger:</b> '+data[rule].rule+', <b>Action:</b> '+data[rule].action+', <b>Message:</b> '+data[rule].message+'</p><div class="btn-group" role="group" aria-label="..."><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button><button type="button" class="btn btn-danger" on-click="removeRule(\''+rule+'\')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></button></div><hr>');
-      }
-      console.log(data);
-    });
     var removeRule = function(rule) {
       $.ajax({
           url: '/2705621411/rules/'+rule,
@@ -104,6 +98,13 @@
           }
       });
     };
+    $.get( "/users/2705621411/rules", function( data ) {
+      for(rule in data) {
+        $("#list").append('<p>'+rule+'<br><b>Type:</b> '+data[rule].type+', <b>Trigger:</b> '+data[rule].rule+', <b>Action:</b> '+data[rule].action+', <b>Message:</b> '+data[rule].message+'</p><div class="btn-group" role="group" aria-label="..."><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button><button type="button" class="btn btn-danger" on-click="removeRule(\''+rule+'\')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span></button></div><hr>');
+      }
+      console.log(data);
+    });
+    
   </script>
     <script>
     $(function(){
