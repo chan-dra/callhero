@@ -52,9 +52,14 @@
     <!-- Menu button -->
     <div id="menuToggle"><i class="fa fa-bars"></i></div>
   </nav>
-  <div id="list">
+  <div class="container" style="margin-top:150px;">
+    <h2>Rules</h2>
+    <div id="list">
+      <p>rule name</p>
 
+    </div>
   </div>
+  
   
   
   
@@ -76,7 +81,7 @@
   <script type="text/javascript">
     $.get( "/users/2705621411/rules", function( data ) {
       for(rule in data) {
-        $("#list").append('<p>'+Object.keys(rule)[0]+'</p>');
+        $("#list").append('<p>'+rule+'</p><br><p>Type: data[rule].type, Trigger: data[rule].rule, Action: data[rule].action, Message: data[rule].message</p>');
       }
       console.log(data);
     });
