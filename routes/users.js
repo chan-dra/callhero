@@ -86,7 +86,7 @@ router.post('/:id/rules', function(req, res, next) {
             }
             updateRulesForUser(req.params.id, rules, db, function(err, newDoc) {
                 console.log(newDoc);
-                res.json({success: true})
+                res.redirect('/list.html');
             })
         });
     });
