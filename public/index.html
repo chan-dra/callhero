@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>NYC - Design Studio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/js/fancybox/jquery.fancybox.css" rel="stylesheet" />
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-offset="0" data-target="#theMenu">
+		
+	<!-- Menu -->
+	<nav class="menu" id="theMenu">
+		<div class="menu-wrap">
+			<h1 class="logo"><a href="index.html#home">DSGN NYC</a></h1>
+			<i class="fa fa-times menu-close"></i>
+			<a href="#home" class="smoothScroll">Home</a>
+			<a href="#about" class="smoothScroll">About</a>
+			<a href="#portfolio" class="smoothScroll">Portfolio</a>
+			<a href="#services" class="smoothScroll">Services</a>
+			<a href="#contact" class="smoothScroll">Contact</a>
+			<a href="#"><i class="fa fa-facebook"></i></a>
+			<a href="#"><i class="fa fa-twitter"></i></a>
+			<a href="#"><i class="fa fa-dribbble"></i></a>
+			<a href="#"><i class="fa fa-envelope"></i></a>
+		</div>
+		
+		<!-- Menu button -->
+		<div id="menuToggle"><i class="fa fa-bars"></i></div>
+	</nav>
+  <form action="/users/2705621411/rules" method="post">
+    <div class="container">
+      <div class="jumbotron" style="margin-top:150px;">
+        <div class="row">
+          <div class="col-md-1">
+            Name
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control" name="name"/>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Select Type</h3><br/>
+            <div class="radio">
+              <label><input type="radio" name="type">Call</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="type">Text</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h3>Trigger</h3><br/>
+            <div class="radio">
+              <label><input type="radio" name="rule">Not in contacts</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="rule">Weekday</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="rule">WeekEnd</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="rule">Custom(Time)</label>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h3>Action</h3><br/>
+            <div class="radio">
+              <label><input type="radio" name="action">Drop call</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="action">Drop call with message</label>
+            </div>
+            <div class="radio">
+              <label><input type="radio" name="action">Forward to number</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button style="border: 1px solid;border-radius: 15px;float:right;" type="submit">Create</button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+  
+  
+	
+	
+<!-- 	<div class="sep contact" data-stellar-background-ratio="0.5"></div>
+ -->	
+	
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="assets/js/classie.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/jquery.stellar.min.js"></script>
+	<script src="assets/js/fancybox/jquery.fancybox.js"></script>    
+	<script src="assets/js/main.js"></script>
+		<script>
+		$(function(){
+			$.stellar({
+				horizontalScrolling: false,
+				verticalOffset: 40
+			});
+		});
+		</script>
+		
+		<script type="text/javascript">
+      $(function() {
+        //    fancybox
+          jQuery(".fancybox").fancybox();
+      });
+	   </script>
+
+  </body>
+</html>
