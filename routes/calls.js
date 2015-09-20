@@ -30,9 +30,9 @@ router.get('/', function(req, res, next) {
     var resp = new twilio.TwimlResponse();
     MongoClient.connect(url, function(err, db) {
         findUser(id, db, function(err, user) {
-            var rules = user.rules;
+            var rules = Object.keys(user.rules);
             for(var i = 0; i < rules.length; i++) {
-                var rule = rules[i];
+                var rule = user.rules[rules[i]];
                 if (rule.type === 'call') {
                     //resp.say({voice:'woman'}, 'ahoy hoy! Testing Twilio and node.js');
                     if (rule.rule === 'not_in_contacts') {
@@ -56,12 +56,19 @@ router.get('/', function(req, res, next) {
                                     node.number(id);
                                 });
                             } else {
-                                resp.say({voice:'woman'}, 'You are not in contacts, call is going to drop');
+                                resp.say({voice:'woman'}, rule.message);
                             }
                         }
                     }
                 }
             }
+
+            if (rules.length === 0) {
+                resp.dial({}, function(node) {
+                    node.number(id);
+                });
+            }
+
             res.writeHead(200, {
                 'Content-Type':'text/xml'
             });
