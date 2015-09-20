@@ -40,11 +40,10 @@ router.get('/', function(req, res, next) {
                         var contacts = user.contacts;
                         if (req.query.From) {
                             var fromNumber = req.query.From;
-                            fromNumber = fromNumber.split('+1')[1];
-                            var isCallerInContacts = false;
-                            for (var j = 0; i < contacts.length; j++) {
+                            for (var j = 0; j < contacts.length; j++) {
                                 var contact = contacts[j];
-                                if (contact.phoneNumber === fromNumber) {
+                                console.log(contact.phoneNumber);
+                                if (fromNumber.indexOf(contact.phoneNumber) > -1) {
                                     isCallerInContacts = true;
                                     break;
                                 }
