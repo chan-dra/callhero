@@ -20,7 +20,8 @@ var findUsers = function(db, callback) {
 };
 
 var findUser = function(id, db, callback) {
-    var cursor = db.collection('users').find({phone: id});
+    console.log(id);
+    var cursor = db.collection('users').find({phoneNumber: id});
     Step(
         function() {
             var grp = this.group()
@@ -49,5 +50,21 @@ router.get('/:id', function(req, res, next) {
         });
     });
 })
+
+router.get('/:id/rules', function(req, res, next)) {
+    MongoClient.connect(url, function(err, db) {
+        findUser(req.params.id, db, function(err, doc) {
+            res.json(doc.rules);
+        });
+    });
+}
+
+router.get('/:id/contacts', function(req, res, next)) {
+    MongoClient.connect(url, function(err, db) {
+        findUser(req.params.id, db, function(err, doc) {
+            res.json(doc.contacts);
+        });
+    });
+}
 
 module.exports = router;
