@@ -86,7 +86,7 @@ router.post('/:id/rules', function(req, res, next) {
             }
             updateRulesForUser(req.params.id, rules, db, function(err, newDoc) {
                 console.log(newDoc);
-                res.redirect('/list.html');
+                res.redirect('/index.html');
             })
         });
     });
@@ -102,7 +102,7 @@ router.delete('/:id/rules/:ruleName', function(req, res, next) {
             }
             updateRulesForUser(req.params.id, rules, db, function(err, newDoc) {
                 console.log(newDoc);
-                res.redirect('/list.html');
+                res.redirect('/index.html');
             })
         });
     });
