@@ -59,6 +59,17 @@ router.get('/', function(req, res, next) {
                                 resp.say({voice:'woman'}, rule.message);
                             }
                         }
+                    } else if (rule.rule === 'weekend') {
+                        var today = new Date().getDay();
+                        var isWeekend = (today == 6) || (today == 0);
+                        console.log(today);
+                        if (isWeekend && rule.action === 'drop') {
+                            resp.say({voice:'woman'}, rule.message);
+                        } else {
+                            resp.dial({}, function(node) {
+                                node.number(id);
+                            });
+                        }
                     }
                 }
             }

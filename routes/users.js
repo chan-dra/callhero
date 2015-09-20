@@ -34,6 +34,15 @@ var findUser = function(id, db, callback) {
     )
 };
 
+var updateRulesForUser = function(id, rules, db, callback) {
+    console.log(id);
+    var cursor = db.collection('users').update({phoneNumber: id}, {
+        $set: {
+            rules: rules
+        }
+    }, callback);
+};
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
@@ -58,6 +67,30 @@ router.get('/:id/rules', function(req, res, next) {
         });
     });
 });
+
+router.post('/:id/rules', function(req, res, next) {
+    var ruleName = req.body.name;
+    var type = req.body.type;
+    var rule = req.body.rule;
+    var action = req.body.action;
+    var message = req.body.message;
+
+    MongoClient.connect(url, function(err, db) {
+        findUser(req.params.id, db, function(err, doc) {
+            var rules = doc.rules;
+            rules[ruleName] = {
+                type: type,
+                rule: rule,
+                action: action,
+                message: message
+            }
+            updateRulesForUser(req.params.id, rules, db, function(err, newDoc) {
+                console.log(newDoc);
+                res.json({success: true})
+            })
+        });
+    });
+})
 
 router.get('/:id/contacts', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
