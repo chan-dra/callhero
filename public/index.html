@@ -91,10 +91,10 @@
   <script type="text/javascript">
     var removeRule = function(rule) {
       $.ajax({
-          url: '/2705621411/rules/'+rule,
+          url: '/users/2705621411/rules/'+rule,
           type: 'DELETE',
           success: function(result) {
-              // Do something with the result
+              window.location.reload(false);
           }
       });
     };
