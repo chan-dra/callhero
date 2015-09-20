@@ -75,7 +75,9 @@
   <script src="assets/js/main.js"></script>
   <script type="text/javascript">
     $.get( "/users/2705621411/rules", function( data ) {
-      $( "#list" ).html( data );
+      for(rule in data) {
+        $("#list").append('<p>'.Object.keys(rule)[0]'</p>');
+      }
       console.log(data);
     });
   </script>
