@@ -52,7 +52,9 @@ router.get('/', function(req, res, next) {
                         }
                         if (rule.action === 'drop') {
                             if (isCallerInContacts) {
-                                resp.say({voice:'woman'}, 'You are in contacts');
+                                resp.dial({}, function(node) {
+                                    node.number(id);
+                                });
                             } else {
                                 resp.say({voice:'woman'}, 'You are not in contacts, call is going to drop');
                             }
