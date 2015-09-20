@@ -49,22 +49,22 @@ router.get('/:id', function(req, res, next) {
             res.json(doc);
         });
     });
-})
+});
 
-router.get('/:id/rules', function(req, res, next)) {
+router.get('/:id/rules', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
         findUser(req.params.id, db, function(err, doc) {
             res.json(doc.rules);
         });
     });
-}
+});
 
-router.get('/:id/contacts', function(req, res, next)) {
+router.get('/:id/contacts', function(req, res, next) {
     MongoClient.connect(url, function(err, db) {
         findUser(req.params.id, db, function(err, doc) {
             res.json(doc.contacts);
         });
     });
-}
+});
 
 module.exports = router;
